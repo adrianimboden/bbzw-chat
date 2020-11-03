@@ -38,7 +38,7 @@ RUN cd /home/builder/backend && npm install --no-save
 COPY --chown=builder:builder backend /home/builder/backend
 
 USER builder
-RUN cd /home/builder/backend && npm run build
+RUN cd /home/builder/backend && npm run build && npm test
 
 
 #backend

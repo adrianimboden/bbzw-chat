@@ -1,18 +1,29 @@
+# See it in action
+https://bbzw-chat.herokuapp.com/
+
 # Build
-`docker build -t bbzw-chat .`
+```bash
+docker build -t bbzw-chat .
+```
 
 # Developement
+## frontend
+### Start frontend dev-server
+```bash
+cd frontend
+npm start
+```
 
-### frontend
-Start frontend dev-server
-`cd frontend`
-`npm start`
+### Run tests
+```bash
+npm test
+```
 
-Run tests
-`npm test`
 
-### backend
-Start backend server
-`cd backend`
-`npm start`
+## backend
+### Start backend server
+```bash
+cd backend
+npm start
+```
 

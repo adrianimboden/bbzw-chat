@@ -4,6 +4,7 @@ https://bbzw-chat.herokuapp.com/
 # Build
 ```bash
 docker build -t bbzw-chat .
+docker run -it --rm -p 3001:3001 bbzw-chat
 ```
 
 # Developement

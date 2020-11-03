@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "build",
+    "rootDir": "./src",
+    "outDir": "./build",
     "target": "es6",
     "plugins": [
       {
@@ -16,7 +17,6 @@
     "noUnusedLocals": true,
     "allowUnreachableCode": false,
     "allowJs": true,
-    "esModuleInterop": true,
-    "incremental": true
+    "esModuleInterop": true
   }
 }

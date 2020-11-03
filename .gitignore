@@ -4,6 +4,8 @@ frontend/build
 backend/node_modules
 backend/build
 
+*.tsbuildinfo
+
 # misc
 .DS_Store
 .env.local

@@ -18,13 +18,44 @@ function add_frontend(app: Express) {
   });
 }
 
+type Message = {
+  who: string;
+  message: string;
+};
+
 function add_backend(server: http.Server) {
   const connected_clients = new Set<Connection>();
   const sockjs_server = sockjs.createServer();
   sockjs_server.on("connection", (client) => {
     connected_clients.add(client);
     client.on("data", (msg) => {
-      connected_clients.forEach((connection) => connection.write(msg));
+      const verified_msg_str = ((): string | null => {
+        try {
+          const data = JSON.parse(msg);
+          if (typeof data != "object") {
+            return null;
+          }
+          if (typeof data.who != "string") {
+            return null;
+          }
+          if (typeof data.message != "string") {
+            return null;
+          }
+          const verified_msg: Message = {
+            who: data.who,
+            message: data.message,
+          };
+
+          return JSON.stringify(verified_msg);
+        } catch {
+          return null;
+        }
+      })();
+      if (verified_msg_str != null) {
+        connected_clients.forEach((connection) =>
+          connection.write(verified_msg_str)
+        );
+      }
     });
     client.on("close", () => connected_clients.delete(client));
   });

@@ -93,6 +93,7 @@ function App() {
   return (
     <div>
       <div className="messages">
+        Mein Text
         <table>
           <thead>
             <tr>
